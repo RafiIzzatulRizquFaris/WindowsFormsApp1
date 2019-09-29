@@ -28,49 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // btnLogin
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.button1.Location = new System.Drawing.Point(251, 147);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 39);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.btnLogin.Location = new System.Drawing.Point(251, 147);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(128, 39);
+            this.btnLogin.TabIndex = 0;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnRegister
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.button2.Location = new System.Drawing.Point(81, 147);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 40);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Register";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.btnRegister.Location = new System.Drawing.Point(81, 147);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(128, 40);
+            this.btnRegister.TabIndex = 1;
+            this.btnRegister.Text = "Register";
+            this.btnRegister.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tbUsername
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.textBox1.Location = new System.Drawing.Point(218, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(161, 32);
-            this.textBox1.TabIndex = 2;
+            this.tbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.tbUsername.Location = new System.Drawing.Point(218, 44);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(161, 32);
+            this.tbUsername.TabIndex = 2;
             // 
-            // textBox2
+            // tbPassword
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.textBox2.Location = new System.Drawing.Point(218, 85);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(161, 32);
-            this.textBox2.TabIndex = 3;
+            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.tbPassword.Location = new System.Drawing.Point(218, 85);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(161, 32);
+            this.tbPassword.TabIndex = 3;
             // 
             // label1
             // 
@@ -100,10 +100,10 @@
             this.ClientSize = new System.Drawing.Size(454, 230);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.tbPassword);
+            this.Controls.Add(this.tbUsername);
+            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.btnLogin);
             this.Name = "FormLogin";
             this.Text = "FormLogin";
             this.ResumeLayout(false);
@@ -113,10 +113,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.TextBox tbUsername;
+        private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }
