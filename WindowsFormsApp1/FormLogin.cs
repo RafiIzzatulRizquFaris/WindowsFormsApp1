@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
         public FormLogin()
         {
             InitializeComponent();
+            tbPassword.PasswordChar = '*';
         }
 
         private void Label1_Click(object sender, EventArgs e)
