@@ -59,6 +59,8 @@ namespace WindowsFormsApp1
                 sqlCommand.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Your Regristration is complete, Please Login again", "Success Register", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tbUsername.Clear();
+                tbUsername.Clear();
             }
             else
             {
