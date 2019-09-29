@@ -46,5 +46,24 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Cannot Find Username or Password like that", "Wrong Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void BtnRegister_Click(object sender, EventArgs e)
+        {
+            if (tbPassword.TextLength >= 5)
+            {
+                SqlCommand sqlCommand = new SqlCommand("INSERT INTO Login_Tabel Values (@username, @password)", con);
+                sqlCommand.CommandType = CommandType.Text;
+                sqlCommand.Parameters.AddWithValue("@username", tbUsername.Text);
+                sqlCommand.Parameters.AddWithValue("@password", tbUsername.Text);
+                con.Open();
+                sqlCommand.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Your Regristration is complete, Please Login again", "Success Register", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Password must be 5 or more character", "Cannot Register", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
