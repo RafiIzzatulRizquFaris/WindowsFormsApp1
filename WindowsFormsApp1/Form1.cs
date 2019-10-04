@@ -41,7 +41,6 @@ namespace WindowsFormsApp1
             DataTable dataTable = new DataTable();
 
             con.Open();
-
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
             dataTable.Load(sqlDataReader);
             con.Close();
