@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,7 +33,9 @@ namespace WindowsFormsApp1
 
         private void getLogin()
         {
-            string query = "SELECT * FROM Login_Tabel WHERE username = '" + tbUsername.Text.Trim() + "' AND password = '" + tbPassword.Text.Trim() + "'";
+            string hashed = Hashing.Sha256(tbPassword.Text.Trim());
+            Console.WriteLine(hashed);
+            string query = "SELECT * FROM Table_2 WHERE username = '" + tbUsername.Text.Trim() + "' AND password = '" + hashed + "'";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, con);
             DataTable dataTable = new DataTable();
             sqlDataAdapter.Fill(dataTable);
@@ -52,10 +55,11 @@ namespace WindowsFormsApp1
         {
             if (tbPassword.TextLength >= 5)
             {
-                SqlCommand sqlCommand = new SqlCommand("INSERT INTO Login_Tabel Values (@username, @password)", con);
+                string hash = Hashing.Sha256(tbPassword.Text);
+                SqlCommand sqlCommand = new SqlCommand("INSERT INTO Table_2 Values (@username, @password)", con);
                 sqlCommand.CommandType = CommandType.Text;
                 sqlCommand.Parameters.AddWithValue("@username", tbUsername.Text);
-                sqlCommand.Parameters.AddWithValue("@password", tbUsername.Text);
+                sqlCommand.Parameters.AddWithValue("@password", hash);
                 con.Open();
                 sqlCommand.ExecuteNonQuery();
                 con.Close();
