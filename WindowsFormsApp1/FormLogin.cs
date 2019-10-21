@@ -35,15 +35,23 @@ namespace WindowsFormsApp1
         {
             string hashed = Hashing.Sha256(tbPassword.Text.Trim());
             Console.WriteLine(hashed);
-            string query = "SELECT * FROM Table_2 WHERE username = '" + tbUsername.Text.Trim() + "' AND password = '" + hashed + "'";
+            string query = "SELECT * FROM RoleLogin WHERE username = '" + tbUsername.Text.Trim() + "' AND password = '" + hashed + "'";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, con);
             DataTable dataTable = new DataTable();
             sqlDataAdapter.Fill(dataTable);
             if(dataTable.Rows.Count == 1)
             {
-                Form1 form1 = new Form1();
-                this.Hide();
-                form1.Show();
+                int role = Convert.ToInt32(dataTable.Rows[0]["role"]);
+                if (role == 1)
+                {
+                    Form1 form1 = new Form1();
+                    this.Hide();
+                    form1.Show();
+                }
+                else
+                {
+                    MessageBox.Show("User Not Found", "CANNOT LOGGED IN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -56,7 +64,7 @@ namespace WindowsFormsApp1
             if (tbPassword.TextLength >= 5)
             {
                 string hash = Hashing.Sha256(tbPassword.Text);
-                SqlCommand sqlCommand = new SqlCommand("INSERT INTO Table_2 Values (@username, @password)", con);
+                SqlCommand sqlCommand = new SqlCommand("INSERT INTO RoleLogin Values (@username, @password)", con);
                 sqlCommand.CommandType = CommandType.Text;
                 sqlCommand.Parameters.AddWithValue("@username", tbUsername.Text);
                 sqlCommand.Parameters.AddWithValue("@password", hash);
